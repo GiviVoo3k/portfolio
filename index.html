@@ -119,9 +119,9 @@
   .hero-photo-wrap {
     position: absolute;
     right: 5%;
-    bottom: 0;
-    width: 420px;
-    max-width: 42vw;
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(220px, 32vw, 480px);
     pointer-events: none;
     z-index: 1;
   }
@@ -130,22 +130,23 @@
     display: block;
     width: 100%;
     height: auto;
-    mix-blend-mode: luminosity;
-    filter: grayscale(20%) contrast(1.08);
+    filter: grayscale(15%) contrast(1.05);
     -webkit-mask-image: linear-gradient(
       to top,
       rgba(0,0,0,0) 0%,
-      rgba(0,0,0,0.3) 8%,
-      rgba(0,0,0,1) 28%,
-      rgba(0,0,0,1) 75%,
+      rgba(0,0,0,0.5) 6%,
+      rgba(0,0,0,1) 20%,
+      rgba(0,0,0,1) 80%,
+      rgba(0,0,0,0.5) 94%,
       rgba(0,0,0,0) 100%
     );
     mask-image: linear-gradient(
       to top,
       rgba(0,0,0,0) 0%,
-      rgba(0,0,0,0.3) 8%,
-      rgba(0,0,0,1) 28%,
-      rgba(0,0,0,1) 75%,
+      rgba(0,0,0,0.5) 6%,
+      rgba(0,0,0,1) 20%,
+      rgba(0,0,0,1) 80%,
+      rgba(0,0,0,0.5) 94%,
       rgba(0,0,0,0) 100%
     );
     transition: opacity 0.1s linear;
@@ -549,7 +550,7 @@
 
   @media (max-width: 1024px) {
     .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero-photo-wrap { width: 320px; max-width: 36vw; }
+    .hero-photo-wrap { width: clamp(180px, 28vw, 320px); }
     .hero-content { max-width: 60%; }
   }
 
@@ -559,7 +560,7 @@
     .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
     .gl3 { display: none; }
     .cta-banner { flex-direction: column; align-items: flex-start; }
-    .hero-photo-wrap { width: 240px; max-width: 40vw; right: 3%; }
+    .hero-photo-wrap { width: clamp(150px, 28vw, 240px); right: 3%; }
     .hero-content { max-width: 58%; }
   }
 
@@ -812,10 +813,10 @@
   });
 
   // Form submit
-  // НАСТРОЙКИ TELEGRAM
-  const TG_TOKEN   = '8759728606:AAHmbocGZYgdGHunRRPq1mVREgrUeDiMFGY';   // токен от @BotFather
-  const TG_CHAT_ID = '1243212995'; // числовой chat_id
-
+  // ===== НАСТРОЙКИ TELEGRAM =====
+  const TG_TOKEN   = '8759728606:AAHmbocGZYgdGHunRRPq1mVREgrUeDiMFGY';
+  const TG_CHAT_ID = '1243212995';
+  // ================================
 
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
